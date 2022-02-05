@@ -3,8 +3,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 async function dbconnect() {
-   await mongoose.connect(process.env.MONGO_URL, () => {
+    try {
+    await mongoose.connect(process.env.MONGO_URL, () => {
         console.log('mongodb is connected')
     }) 
+    } catch (e) {
+        console.log(e);
+    }
 }
 module.exports = dbconnect
