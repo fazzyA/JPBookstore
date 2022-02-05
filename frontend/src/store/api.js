@@ -1,12 +1,12 @@
 import axios from 'axios'
 
+const Base = window.location.origin;
 export const instance = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: Base,
     headers:{
       "Access-Control-Allow-Origin": "*",
     }
   });
-const Base = window.location.origin;
 console.log("🚀 ~ file: api.js ~ line 10 ~ Base", Base)
 
 export function getPosts(){
